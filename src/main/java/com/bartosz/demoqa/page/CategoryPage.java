@@ -1,21 +1,17 @@
 package com.bartosz.demoqa.page;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import lombok.AllArgsConstructor;
 
 public class CategoryPage {
-public Page categoryPage;
+private final Page page;
 
     public CategoryPage(Page page) {
-        this.categoryPage = page;
+        this.page = page;
     }
 
-    private final String cardBoxLocator = "//*[@class='card-body']/*[contains(text(),'%s')]";
-
-    public Locator description = categoryPage.locator("Ad.Plus-728x90");
+    public final String cardBoxLocator = "//*[@class='card-body']/*[contains(text(),'%s')]";
 
     public void selectCardBox(String name) {
-        categoryPage.locator(String.format(cardBoxLocator, name)).click();
+        page.locator(String.format(cardBoxLocator, name)).click();
     }
 }
