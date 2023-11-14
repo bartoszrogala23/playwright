@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-import static com.bartosz.demoqa.constant.Locator.textFieldContainerLocator;
+import static com.bartosz.demoqa.constant.Locator.TEXT_FIELD_CONTAINER_LOCATOR;
 
 public class TextBoxPage {
     private Page page;
@@ -19,10 +19,10 @@ public class TextBoxPage {
     }
 
     public void fillFormUsingName(String name) {
-        page.locator(textFieldContainerLocator +"#userName").fill(name);
-        page.locator(textFieldContainerLocator +"#userEmail").fill(FAKER.internet().emailAddress());
-        page.locator(textFieldContainerLocator +"#currentAddress").fill(FAKER.address().fullAddress());
-        page.locator(textFieldContainerLocator +"#permanentAddress").fill(FAKER.address().secondaryAddress());
+        page.locator(TEXT_FIELD_CONTAINER_LOCATOR +"#userName").fill(name);
+        page.locator(TEXT_FIELD_CONTAINER_LOCATOR +"#userEmail").fill(FAKER.internet().emailAddress());
+        page.locator(TEXT_FIELD_CONTAINER_LOCATOR +"#currentAddress").fill(FAKER.address().fullAddress());
+        page.locator(TEXT_FIELD_CONTAINER_LOCATOR +"#permanentAddress").fill(FAKER.address().secondaryAddress());
     }
 
     public Locator getOutputText(String rowName) {
