@@ -6,12 +6,11 @@ import com.microsoft.playwright.Page;
 
 import static com.bartosz.demoqa.constant.Locator.textFieldContainerLocator;
 
-public class TextBox {
+public class TextBoxPage {
     private Page page;
     Faker FAKER = new Faker();
 
-
-    public TextBox(Page page) {
+    public TextBoxPage(Page page) {
         this.page = page;
     }
 
