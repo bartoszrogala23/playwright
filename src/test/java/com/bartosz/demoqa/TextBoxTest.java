@@ -1,24 +1,22 @@
 package com.bartosz.demoqa;
 
-import com.bartosz.demoqa.page.TextBox;
-import com.github.javafaker.Faker;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
+import static com.bartosz.demoqa.constant.Item.*;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class TextBoxTest extends BaseTest {
 
     @Test
-    @DisplayName("Correctly filled textbox should return filled frame")
+    @DisplayName("Correctly filled textBox should return filled frame")
     public void fillTextBoxTest() {
         launchBrowser();
-        categoryPage.selectCardBox("Elements");
-        categoryPage.selectMenuButton("Text Box");
+        categoryPage.selectCardBox(ELEMENTS);
+        categoryPage.selectMenuButton(TEXT_BOX);
         String sampleName = FAKER.name().fullName();
-//        klasa + builder żeby ułatwić asercję i zmienic argumenty w fillFormUsingName
         textBox.fillFormUsingName(sampleName);
         textBox.submit();
-        assertThat(textBox.getOutputText("name")).containsText(sampleName);
+        assertThat(textBox.getOutputText(NAME)).containsText(sampleName);
     }
 }
