@@ -8,13 +8,12 @@ import static com.bartosz.demoqa.constant.Locator.textFieldContainerLocator;
 
 public class TextBox {
     private Page page;
+    Faker FAKER = new Faker();
+
 
     public TextBox(Page page) {
         this.page = page;
     }
-
-    Faker FAKER = new Faker();
-
 
     public void fillInput(String locatorId, String text) {
         page.locator("#" + locatorId).fill(text);
