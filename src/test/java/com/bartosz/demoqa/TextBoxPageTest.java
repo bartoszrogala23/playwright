@@ -4,10 +4,11 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
 import static com.bartosz.demoqa.constant.Item.*;
-import static com.bartosz.demoqa.constant.Locator.FIELD_ERROR_FORM_CONTROL_LOCATOR;
+import static com.bartosz.demoqa.constant.Locator.*;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class TextBoxPageTest extends BaseTest {
+
 
     @Test
     @DisplayName("Correctly filled textBox should return filled frame")
@@ -29,7 +30,7 @@ public class TextBoxPageTest extends BaseTest {
         categoryPage.selectMenuButton(TEXT_BOX);
         textBoxPage.fillInput(USER_EMAIL, FAKER.name().name());
         textBoxPage.submit();
-        assertThat(page.locator("#userEmail")).hasClass(FIELD_ERROR_FORM_CONTROL_LOCATOR);
-        assertThat(page.locator("#output")).isEmpty();
+        assertThat(page.locator(BY_ID_USER_EMAIL_LOCATOR)).hasClass(FIELD_ERROR_FORM_CONTROL_LOCATOR);
+        assertThat(page.locator(BY_ID_OUTPUT_LOCATOR)).isEmpty();
     }
 }

@@ -3,6 +3,7 @@ package com.bartosz.demoqa;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
+import static com.bartosz.demoqa.constant.Item.BUTTONS;
 import static com.bartosz.demoqa.constant.Item.ELEMENTS;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -13,7 +14,7 @@ public class ButtonTest extends BaseTest {
     public void doubleClickTest() {
         setup();
         categoryPage.selectCardBox(ELEMENTS);
-        categoryPage.selectMenuButton("Buttons");
+        categoryPage.selectMenuButton(BUTTONS);
         buttonsPage.doubleClick();
         assertThat(buttonsPage.doubleClickMessageLocator)
                 .containsText("You have done a double click");
@@ -24,7 +25,7 @@ public class ButtonTest extends BaseTest {
     public void rightClickTest() {
         setup();
         categoryPage.selectCardBox(ELEMENTS);
-        categoryPage.selectMenuButton("Buttons");
+        categoryPage.selectMenuButton(BUTTONS);
         buttonsPage.rightClick();
         assertThat(buttonsPage.rightClickMessageLocator)
                 .containsText("You have done a right click");
@@ -35,7 +36,7 @@ public class ButtonTest extends BaseTest {
     public void singleClickTest() {
         setup();
         categoryPage.selectCardBox(ELEMENTS);
-        categoryPage.selectMenuButton("Buttons");
+        categoryPage.selectMenuButton(BUTTONS);
         buttonsPage.dynamicClick();
         assertThat(buttonsPage.dynamicClickMessageLocator)
                 .containsText("You have done a dynamic click");

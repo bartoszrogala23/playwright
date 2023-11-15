@@ -6,4 +6,9 @@ public class Item {
     public static String NAME = "name";
     public static String USER_EMAIL = "userEmail";
 
+    /*
+    Menu buttons
+     */
+    public static String CHECK_BOX = "Check Box";
+    public static String BUTTONS = "Buttons";
 }
