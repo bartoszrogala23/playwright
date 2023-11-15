@@ -11,7 +11,7 @@ public class CheckBoxPageTest extends BaseTest {
     @Test
     @DisplayName("Home checkbox should be selected")
     public void checkBoxTest() {
-        launchBrowser();
+        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton("Check Box");
         checkBoxPage.selectHome();

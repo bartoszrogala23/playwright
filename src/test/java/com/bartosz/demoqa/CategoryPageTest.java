@@ -10,7 +10,7 @@ public class CategoryPageTest extends BaseTest {
     @Test
     @DisplayName("Verify if you even can setup simple test")
     public void selectElementCardBoxTest() {
-        launchBrowser();
+        setup();
         categoryPage.selectCardBox("Elements");
         assertThat(page.locator("//*[@class='main-header']")).containsText("Elements");
     }

@@ -21,7 +21,7 @@ public abstract class BaseTest {
 
     Faker FAKER = new Faker();
 
-    public void launchBrowser() {
+    public void setup() {
         Playwright playwright = Playwright.create();
         Browser browser = playwright.firefox().launch(
                 new BrowserType.LaunchOptions().setHeadless(false)

@@ -11,7 +11,7 @@ public class ButtonTest extends BaseTest {
     @Test
     @DisplayName("Double click button should invoke expected message")
     public void doubleClickTest() {
-        launchBrowser();
+        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton("Buttons");
         buttonsPage.doubleClick();
@@ -22,7 +22,7 @@ public class ButtonTest extends BaseTest {
     @Test
     @DisplayName("Right click button should invoke expected message")
     public void rightClickTest() {
-        launchBrowser();
+        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton("Buttons");
         buttonsPage.rightClick();
@@ -33,7 +33,7 @@ public class ButtonTest extends BaseTest {
     @Test
     @DisplayName("Single click button should invoke expected message")
     public void singleClickTest() {
-        launchBrowser();
+        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton("Buttons");
         buttonsPage.dynamicClick();
