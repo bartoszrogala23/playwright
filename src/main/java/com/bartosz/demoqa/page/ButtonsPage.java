@@ -25,8 +25,6 @@ public class ButtonsPage {
         this.dynamicClickMessageLocator = page.locator("#dynamicClickMessage");
     }
 
-
-
     public void doubleClick() {
         doubleClickButtonLocator.dblclick();
     }
