@@ -21,11 +21,11 @@ public abstract class BaseTest {
 
     Faker FAKER = new Faker();
 
+    protected BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions().setHeadless(false);
+
     public void setup() {
         Playwright playwright = Playwright.create();
-        Browser browser = playwright.firefox().launch(
-                new BrowserType.LaunchOptions().setHeadless(false)
-        );
+        Browser browser = playwright.firefox().launch(launchOptions);
         page = browser.newPage();
         categoryPage = new CategoryPage(page);
         textBoxPage = new TextBoxPage(page);
