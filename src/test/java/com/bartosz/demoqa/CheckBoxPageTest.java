@@ -1,7 +1,10 @@
 package com.bartosz.demoqa;
 
-import org.junit.Test;
+import com.microsoft.playwright.Locator;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static com.bartosz.demoqa.constant.Item.CHECK_BOX;
 import static com.bartosz.demoqa.constant.Item.ELEMENTS;
@@ -13,10 +16,9 @@ public class CheckBoxPageTest extends BaseTest {
     @Test
     @DisplayName("Home checkbox should be selected")
     public void checkBoxTest() {
-        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton(CHECK_BOX);
-        checkBoxPage.selectHome();
+        checkBoxPage.selectTreeNode("Home");
         assertThat(page.locator(BY_CLASS_CHECK_BOX_LOCATOR)).isChecked();
     }
 }

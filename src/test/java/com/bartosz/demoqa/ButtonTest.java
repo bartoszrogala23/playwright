@@ -1,7 +1,7 @@
 package com.bartosz.demoqa;
 
-import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static com.bartosz.demoqa.constant.Item.BUTTONS;
 import static com.bartosz.demoqa.constant.Item.ELEMENTS;
@@ -12,7 +12,6 @@ public class ButtonTest extends BaseTest {
     @Test
     @DisplayName("Double click button should invoke expected message")
     public void doubleClickTest() {
-        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton(BUTTONS);
         buttonsPage.doubleClick();
@@ -23,7 +22,6 @@ public class ButtonTest extends BaseTest {
     @Test
     @DisplayName("Right click button should invoke expected message")
     public void rightClickTest() {
-        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton(BUTTONS);
         buttonsPage.rightClick();
@@ -34,7 +32,6 @@ public class ButtonTest extends BaseTest {
     @Test
     @DisplayName("Single click button should invoke expected message")
     public void singleClickTest() {
-        setup();
         categoryPage.selectCardBox(ELEMENTS);
         categoryPage.selectMenuButton(BUTTONS);
         buttonsPage.dynamicClick();
