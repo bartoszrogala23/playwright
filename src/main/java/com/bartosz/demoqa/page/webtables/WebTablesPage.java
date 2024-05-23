@@ -8,12 +8,15 @@ public class WebTablesPage {
     public Locator addButton;
     public Locator searchBox;
     public Locator rowDropdown;
+    public Locator emailLocator;
+
 
     public WebTablesPage(Page page) {
         this.page = page;
         this.addButton = page.locator("#addNewRecordButton");
         this.searchBox = page.locator("#searchBox");
         this.rowDropdown = page.locator(".select-wrap");
+        this.emailLocator = page.locator("[role=rowgroup] [role=gridcell]").nth(3);
     }
 
     public void addRecord() {

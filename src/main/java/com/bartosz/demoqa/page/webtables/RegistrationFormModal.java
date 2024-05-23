@@ -1,14 +1,10 @@
 package com.bartosz.demoqa.page.webtables;
 
-import com.github.javafaker.Faker;
+import com.bartosz.demoqa.model.WebTableRecord;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-import static com.bartosz.demoqa.Specification.generateRandomNumber;
-import static java.lang.String.valueOf;
-
 public class RegistrationFormModal extends WebTablesPage {
-    private Page page;
     public Locator firstNameInput;
     public Locator lastNameInput;
     public Locator emailInput;
@@ -16,8 +12,9 @@ public class RegistrationFormModal extends WebTablesPage {
     public Locator salaryInput;
     public Locator departmentInput;
     public Locator submitButton;
-
-    private static final Faker FAKER = new Faker();
+    public Locator tableRow;
+    public Locator searchInput;
+    public Locator currentControlIcon;
 
     public RegistrationFormModal(Page page) {
         super(page);
@@ -28,16 +25,23 @@ public class RegistrationFormModal extends WebTablesPage {
         this.salaryInput = page.getByPlaceholder("Salary");
         this.departmentInput = page.getByPlaceholder("Department");
         this.submitButton = page.locator("#submit");
+        this.tableRow = page.locator("role='rowgroup'");
+        this.searchInput = page.getByPlaceholder("Type to search");
+        this.currentControlIcon = page.locator(".input-group-append");
     }
 
-
-    public void fillRegistrationForm() {
-        firstNameInput.fill(FAKER.name().firstName());
-        lastNameInput.fill(FAKER.name().lastName());
-        emailInput.fill(FAKER.internet().emailAddress());
-        ageInput.fill(valueOf(generateRandomNumber(18, 42)));
-        salaryInput.fill(valueOf(generateRandomNumber(2000, 8000)));
-        departmentInput.fill(FAKER.lordOfTheRings().location() + " Department");
+    public void fillRegistrationForm(WebTableRecord record) {
+        firstNameInput.fill(record.getFirstName());
+        lastNameInput.fill(record.getLastName());
+        emailInput.fill(record.getEmail());
+        ageInput.fill(record.getAge());
+        salaryInput.fill(record.getSalary());
+        departmentInput.fill(record.getDepartment());
         submitButton.click();
+    }
+
+    public void search(String searchValue) {
+        currentControlIcon.click();
+        searchInput.fill(searchValue);
     }
 }
